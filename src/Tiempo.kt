@@ -15,7 +15,10 @@ class Tiempo(var horas: Int, var minutos: Int, var segundos: Int) {
 
     constructor(horas: Int, minutos: Int): this(horas, minutos, segundos = 0)
 
-
+/*
+*
+*
+* hacer el calculo de los minutos segundos en el init*/
     fun pedirValor(msj: String, aceptaVacio: Boolean = true): Int {
         var valor: Int? = null
 
