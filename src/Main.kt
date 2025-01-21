@@ -1,7 +1,6 @@
 fun main(){
 
-
-    val timepo1 = Tiempo(0,62,123)
+    val hora = pedirValor("Introduce la hora: ")
 
 
 }
