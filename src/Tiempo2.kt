@@ -90,9 +90,9 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
      */
     private fun actualizarTiempoConSegundos(totalSegundos: Int) {
 		//TODO: implementar
-        this.hora = totalSegundos / 3600
-        this.min = (totalSegundos % 3600) / 60
-        this.seg = totalSegundos % 60
+        hora = totalSegundos / 3600
+        min = (totalSegundos % 3600) / 60
+        seg = totalSegundos % 60
     }
 
     /**
@@ -100,14 +100,14 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
      *
      * @return El tiempo total en segundos.
      */
-    private fun obtenerSegundos(): Int {
+    private fun obtenerSegundos(): Int = hora * 3600 + min * 60 + seg
 		//TODO: implementar
-        return this.hora * 3600 + this.min * 60 + this.seg
+
 //        val objetoTSegundos = t.hora * 3600 + t.min * 60 + t.seg
 //        val totalSegundos = objetoActualSegundos + objetoTSegundos
 
 
-    }
+
 
     /**
      * Incrementa el tiempo del objeto actual en el tiempo especificado por otro objeto `Tiempo`.
@@ -165,6 +165,11 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
      */
     fun comparar(t: Tiempo): Int {
 		//TODO: implementar
+        return when{
+            this.obtenerSegundos() < t.obtenerSegundos() -> -1
+            obtenerSegundos() > t.obtenerSegundos() -> 1
+            else -> 0
+        }
     }
 
     /**
