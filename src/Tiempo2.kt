@@ -93,6 +93,8 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
         hora = totalSegundos / 3600
         min = (totalSegundos % 3600) / 60
         seg = totalSegundos % 60
+
+
     }
 
     /**
@@ -126,10 +128,10 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
 
 
 
-        if(incremento >= MAX_SEGUNDOS){
+        if(incremento > MAX_SEGUNDOS){
             return false
         }else{
-            this.actualizarTiempoConSegundos(incremento)
+            actualizarTiempoConSegundos(incremento)
             return true
         }
     }
@@ -152,7 +154,7 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
         if(decremento < 0){
             return false
         }else{
-            this.actualizarTiempoConSegundos(decremento)
+            actualizarTiempoConSegundos(decremento)
             return true
         }
     }
@@ -177,17 +179,22 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
      *
      * @return Un nuevo objeto `Tiempo` con los mismos valores de hora, minuto y segundo.
      */
-    fun copiar(): Tiempo {
+    fun copiar(): Tiempo = Tiempo(this.hora, this.min, this.seg)
 		//TODO: implementar
-    }
+
 
     /**
      * Copia el tiempo que almacena el objeto `t` en el objeto actual.
      *
      * @param t El objeto `Tiempo` cuyo tiempo será copiado.
      */
-    fun copiar(t: Tiempo) {
+    fun copiar(t: Tiempo): Tiempo {
 		//TODO: implementar
+        this.hora = t.hora
+        this.min = t.min
+        this.seg = t.seg
+
+        return t
     }
 
     /**
@@ -198,6 +205,12 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
      */
     fun sumar(t: Tiempo): Tiempo? {
 		//TODO: implementar
+        val copiaSumar = copiar()
+        return if(copiaSumar.incrementar(t)){
+            copiaSumar
+        }else{
+            null
+        }
     }
 
     /**
@@ -208,6 +221,12 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
      */
     fun restar(t: Tiempo): Tiempo? {
 		//TODO: implementar
+        val copiaRestar = copiar()
+        return if(copiaRestar.decrementar(t)){
+            copiaRestar
+        }else{
+            null
+        }
     }
 
     /**
@@ -218,6 +237,7 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
      */
     fun esMayorQue(t: Tiempo): Boolean {
 		//TODO: implementar
+        return comparar(t) == 1
     }
 
     /**
@@ -228,6 +248,7 @@ class Tiempo(var hora: Int, var min: Int, var seg: Int) {
      */
     fun esMenorQue(t: Tiempo): Boolean {
 		//TODO: implementar
+        return comparar(t) == -1
     }
 
     /**
