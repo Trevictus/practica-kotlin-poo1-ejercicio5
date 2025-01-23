@@ -1,3 +1,4 @@
+/*
 class Tiempo(var horas: Int, var minutos: Int, var segundos: Int) {
 
 
@@ -15,10 +16,12 @@ class Tiempo(var horas: Int, var minutos: Int, var segundos: Int) {
 
     constructor(horas: Int, minutos: Int): this(horas, minutos, segundos = 0)
 
+*/
 /*
 *
 *
-* hacer el calculo de los minutos segundos en el init*/
+* hacer el calculo de los minutos segundos en el init*//*
+
     fun pedirValor(msj: String, aceptaVacio: Boolean = true): Int {
         var valor: Int? = null
 
@@ -82,4 +85,4 @@ class Tiempo(var horas: Int, var minutos: Int, var segundos: Int) {
     override fun toString(): String {
         return "${"%02d".format(horas)}h:${minutos}m:${segundos}s"
     }
-}
+}*/
